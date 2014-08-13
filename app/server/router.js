@@ -180,14 +180,20 @@ module.exports = function(app) {
 	});
 	
 	app.post("/upload", function (req, res) {
-		console.log('Upload')
-		var nameDoc = req.files.file.name;
-	    var pathDoc = req.files.file.path;
-		console.log('name = '+nameDoc);
-		console.log('path = '+pathDoc);
-		FM.movePDFsToUserAccountDir(nameDoc, pathDoc, req.session.user.user, function(data){
-			res.send(data);
-		});                                                        
+		console.log(req.files);
+		var i = 0,
+			nameDoc,
+			pathDoc;
+			
+		while(i < req.files.file.length){
+			nameDoc = req.files.file[i].name;
+		    pathDoc = req.files.file[i].path;
+			console.log('name = '+nameDoc);
+			console.log('path = '+pathDoc);
+			FM.movePDFsToUserAccountDir(nameDoc, pathDoc, req.session.user.user); 
+			i++; 
+		}  
+		res.redirect('/home?upload=true&user='+req.session.user.user);                                       
 	});  
 	                                                                                          
 	

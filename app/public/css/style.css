@@ -32,7 +32,46 @@ body {
   float: left;
   margin-left: 10px;
 }
+#sortable {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0px;
+  width: 480px;
+  text-align: center;
+}
+#sortable li {
+  cursor: pointer;
+  float: left;
+  color: #808080;
+  background-color: #fff;
+  margin-top: 2.5px;
+  padding: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: center;
+  width: 385px;
+  border: 1px dotted #808080;
+  margin-bottom: 2.5px;
+}
+#sortable li:hover {
+  cursor: pointer;
+  float: left;
+  color: #fff;
+  background-color: #808080;
+  margin-top: 2.5px;
+  padding: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: center;
+  width: 385px;
+  border: 1px dotted #808080;
+  margin-bottom: 2.5px;
+}
 #account-form-container {
+  width: 460px;
+  margin: 100px auto;
+}
+#document-form-container {
   width: 460px;
   margin: 100px auto;
 }

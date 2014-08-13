@@ -36,7 +36,6 @@ function HomeController()
 		$.ajax({
 			url: '/delete',
 			type: 'POST',
-			data: { id: $('#userId').val()},
 			success: function(data){
 	 			that.showLockedAlert('Your account has been deleted.<br>Redirecting you back to the homepage.');
 			},

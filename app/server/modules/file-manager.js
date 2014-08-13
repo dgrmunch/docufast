@@ -27,7 +27,6 @@ exports.movePDFsToUserAccountDir = function(nameDoc, pathDoc, user, callback){
         console.log('Delete temp');
         fs.unlink(from, function() {
             if (err) throw err;
-            callback(nameDoc);
         });
     });
 }

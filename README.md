@@ -10,6 +10,7 @@
 * [EmailJS](http://github.com/eleith/emailjs) - Node.js > SMTP Server Middleware
 * [Moment.js](http://momentjs.com/) - Lightweight Date Library
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/) - UI Component & Layout Library
+* [Formidable](https://www.npmjs.org/package/formidable) - A node.js module for parsing form data, especially file uploads.
 
 
 By Diego Gonzalez | [xmunch.net](http://www.xmunch.net)
