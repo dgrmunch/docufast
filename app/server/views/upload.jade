@@ -1,8 +1,4 @@
 h1 Upload File
-form(method="post", enctype="multipart/form-data")#upload-form.well.span4
-	fieldset
-		input(type="file", name="file")
-		input(type="password", name="pass", id='pass-tf').span4.required
-	button(type="submit")#btn-upload.btn.btn-primary
-		i.icon-lock.icon-white
-		| Sign in
+form(method="POST", action="/upload", enctype="multipart/form-data")
+    input(type="file", name="file")
+    input(type="submit")
