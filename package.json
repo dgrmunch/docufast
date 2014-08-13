@@ -1,35 +1,28 @@
 {
-  "name": "OpenShift-Sample-App",
-  "version": "1.0.0",
-  "description": "OpenShift Sample Application",
-  "keywords": [
-    "OpenShift",
-    "Node.js",
-    "application",
-    "openshift"
-  ],
-  "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url": "http://www.openshift.com/"
-  },
-  "homepage": "http://www.openshift.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/openshift/origin-server"
-  },
-
-  "engines": {
-    "node": ">= 0.6.0",
-    "npm": ">= 1.0.0"
-  },
-
-  "dependencies": {
-    "express": "~3.4.4"
-  },
-  "devDependencies": {},
-  "bundleDependencies": [],
-
-  "private": true,
-  "main": "server.js"
+	"name": "docufast",
+	"version": "0.1.0",
+	"description": "A tool for easy documentation",
+	"author": {
+		"name": "Diego Gonzalez Rodriguez",
+		"email": "xmunch@xmunch.com"
+	},
+	"website":{
+		"url": "http://www.xmunch.net"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/dgrmunch/docufast.git"
+	},
+	"dependencies": {
+		"express": "3.0.6",
+		"stylus": "0.31.0",
+		"jade": "0.27.7",
+		"mongodb": "1.2.7",
+		"moment" : "1.7.2",
+		"emailjs": "0.3.3"
+	},
+	"engines": {
+		"node": "0.8.14",
+		"npm":  "1.1.65"
+	}
 }
