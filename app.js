@@ -11,8 +11,7 @@ app.configure(function(){
 	app.set(info.PARAM_VIEW_ENGINE, info.VIEW_ENGINE);
 	
 	app.locals.pretty = true;
-	
-	app.use(express.bodyParser());
+	app.use(express.bodyParser({ keepExtensions: true, uploadDir: "./app/server/uploads" })); 
 	app.use(express.cookieParser());
 	app.use(express.session({ secret: info.SECRET }));
 	app.use(express.methodOverride());
