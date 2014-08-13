@@ -174,10 +174,22 @@ module.exports = function(app) {
 				res.render('list-documents', {files : data, empty: false});
 			}	else{
 				console.log('No files');
-				res.render('list-documents', {empty : true});
+				res.render('upload', {empty : true});
 			}
 		})
 	});
+	
+	app.post("/upload", function (req, res) {
+		console.log('Upload')
+		var nameDoc = req.files.file.name;
+	    var pathDoc = req.files.file.path;
+		console.log('name = '+nameDoc);
+		console.log('path = '+pathDoc);
+		FM.movePDFsToUserAccountDir(nameDoc, pathDoc, req.session.user.user, function(data){
+			res.send(data);
+		});                                                        
+	});  
+	                                                                                          
 	
 // view & delete accounts //
 	

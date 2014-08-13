@@ -15,3 +15,19 @@ exports.listDocuments = function(user, callback)
 	  callback(files);
 	});
 }
+
+exports.movePDFsToUserAccountDir = function(nameDoc, pathDoc, user, callback){
+
+	console.log('File-manager: movePDFsToUserAccountDir');
+	var from = './' + pathDoc;
+	var to = './app/server/accounts/'+ user +'/'+nameDoc;
+	console.log('From "'+from+'" to "'+to);
+	fs.rename(from, to, function(err) {
+        if (err) throw err;
+        console.log('Delete temp');
+        fs.unlink(from, function() {
+            if (err) throw err;
+            callback(nameDoc);
+        });
+    });
+}
