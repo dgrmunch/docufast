@@ -25,9 +25,6 @@ function HomeController()
 			data: { user: $('#userId').val()},
 			success: function(data){
 	 			$('#document-form').text('').append(data);
-			},
-			error: function(jqXHR){
-				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
 			}
 		});
 	}
