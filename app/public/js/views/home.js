@@ -32,6 +32,7 @@ $(document).ready(function(){
 				$('#sortable').sortable();
 				$('#document-form-container').addClass('totalSize');
 				$('#document-form').addClass('totalSize');
+				$('#btn-compile').show();
 			}
 		});
 })

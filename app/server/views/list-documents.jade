@@ -4,14 +4,17 @@ extends layout
 block content
 	div.container(style='margin:20px')
 	h3 Order your documents
-	p You can order your PDF files and also specify the pages that you want to use in your final document. Once you finish, click the 'Compile' button in the top bar. Check your email after a couple of minutes, you will receive the document in your inbox.
+	p You can order your PDF files and also specify the pages that you want to use in your final document. 
+	p Once you finish, click the 'Compile' button in the top bar. 
+	p Check your email after a couple of minutes, you will receive the document in your inbox.
 		ul#sortable
 			- for (var i = 0; i < files.length; i++)
 				li
 					h4(style='margin:10px')= files[i]
+					input(type='hidden', name='name', value= files[i])
 					label.control-label(for='name-tf') From page
 					.controls
-						input#name-tf(type='number', name='fromPage', value= '0')
+						input#from#name-tf(type='number', name='fromPage', value= '0')
 					label.control-label(for='name-tf') To page
 					.controls
-						input#name-tf(type='number', name='toPage', value= '0')
+						input#to#name-tf(type='number', name='toPage', value= '0')

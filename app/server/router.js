@@ -179,6 +179,11 @@ module.exports = function(app) {
 		})
 	});
 	
+	app.post("/compile", function (req, res) {
+		console.log(req.param('documents'));
+		//res.render                                       
+	});  
+
 	app.post("/upload", function (req, res) {
 		console.log(req.files);
 		var i = 0,

@@ -7,6 +7,8 @@ function HomeController()
 
 // handle user logout //
 	$('#btn-logout').click(function(){ that.attemptLogout(); });
+	
+	$('#btn-compile').click(function(){ that.compileDocument(); });
 		
 // handle user logout //
 	$('#btn-list').click(function(){ that.listDocuments(); });
@@ -28,6 +30,7 @@ function HomeController()
 				$('#sortable').sortable();
 				$('#document-form-container').addClass('totalSize');
 				$('#document-form').addClass('totalSize');
+				$('#btn-compile').show();
 			}
 		});
 	}
@@ -57,6 +60,33 @@ function HomeController()
 			data: {logout : true},
 			success: function(data){
 	 			that.showLockedAlert('You are now logged out.<br>Redirecting you back to the homepage.');
+			},
+			error: function(jqXHR){
+				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+			}
+		});
+	}
+	
+
+	this.compileDocument = function()
+	{
+		var documents = {}
+	    $('#sortable li').each(function(document_index, document_value) {
+			console.log(document_index);
+			console.log(document_value);
+			console.log('---');
+			var element = {}
+			$(this).find('input').each(function(element_index, element_value){
+				element[element_index] = $(this).val();
+			});
+			documents[document_index] = element;
+	    });
+		$.ajax({
+			url: '/compile',
+			type: 'POST',
+			data: {documents: documents},
+			success: function(data){
+	 			$('.modal-confirm').modal('hide');
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
