@@ -188,9 +188,9 @@ module.exports = function(app) {
 		while(i < req.files.file.length){
 			nameDoc = req.files.file[i].name;
 		    pathDoc = req.files.file[i].path;
-			console.log('name = '+nameDoc);
-			console.log('path = '+pathDoc);
-			FM.movePDFsToUserAccountDir(nameDoc, pathDoc, req.session.user.user); 
+			nameArray = nameDoc.split('.');
+			if(nameArray[nameArray.length - 1] === 'pdf' || nameArray[nameArray.length - 1] === 'PDF' )
+				FM.movePDFsToUserAccountDir(nameDoc, pathDoc, req.session.user.user); 
 			i++; 
 		}  
 		res.redirect('/home?upload=true&user='+req.session.user.user);                                       
