@@ -25,6 +25,9 @@ function HomeController()
 			data: { user: $('#userId').val()},
 			success: function(data){
 	 			$('#document-form').text('').append(data);
+				$('#sortable').sortable();
+				$('#document-form-container').addClass('totalSize');
+				$('#document-form').addClass('totalSize');
 			}
 		});
 	}

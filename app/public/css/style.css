@@ -32,9 +32,18 @@ body {
   float: left;
   margin-left: 10px;
 }
+.totalSize {
+  width: 100% !important;
+  height: 100% !important;
+  margin: auto !important;
+  left: 0 !important;
+  position: absolute !important;
+  right: 0 !important;
+}
 #sortable {
   list-style-type: none;
-  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0px;
   width: 480px;
   text-align: center;

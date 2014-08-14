@@ -30,7 +30,8 @@ $(document).ready(function(){
 			success: function(data){
 				$('#document-form').text('').append(data);
 				$('#sortable').sortable();
-				$('#sortable').disableSelection();
+				$('#document-form-container').addClass('totalSize');
+				$('#document-form').addClass('totalSize');
 			}
 		});
 })
