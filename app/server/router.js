@@ -180,8 +180,17 @@ module.exports = function(app) {
 	});
 	
 	app.post("/compile", function (req, res) {
-		console.log(req.param('documents'));
-		//res.render                                       
+		console.log('Compile router');
+		var documents = req.param('documents');
+		var user = req.session.user.user;
+		console.log(documents);
+		FM.compileDocument(documents, user, function(data){
+			console.log('coco '+res);
+			res.render('upload', {empty : true});
+		});
+		console.log('ok2');
+		res.redirect('/home?upload=true&user='+req.session.user.user);     
+		res.redirect('/'+user+'.pdf');
 	});  
 
 	app.post("/upload", function (req, res) {
@@ -197,7 +206,7 @@ module.exports = function(app) {
 			if(nameArray[nameArray.length - 1] === 'pdf' || nameArray[nameArray.length - 1] === 'PDF' )
 				FM.movePDFsToUserAccountDir(nameDoc, pathDoc, req.session.user.user); 
 			i++; 
-		}  
+		} 
 		res.redirect('/home?upload=true&user='+req.session.user.user);                                       
 	});  
 	                                                                                          
