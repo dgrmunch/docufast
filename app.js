@@ -25,6 +25,7 @@ app.configure(info.DEVELOPMENT, function(){
 
 require(info.DIR_ROUTER)(app);
 
-http.createServer(app).listen(app.get(info.PARAM_PORT), function(){
-	console.log(texts.EXPRESS_LISTENING + app.get(info.PARAM_PORT));
-})
+var port = Number(process.env.PORT || info.PARAM_PORT);
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});

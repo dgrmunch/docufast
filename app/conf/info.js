@@ -12,6 +12,6 @@ module.exports = {
 	DIR_PUBLIC :'/app/public',
 	DIR_ROUTER : './app/server/router',
 	SECRET : 'super-duper-secret-secret',
-	PORT : 8080
+	PORT : 5000
 }
 
