@@ -1,4 +1,5 @@
 var fs = require('fs');
+var exec = require('exec');
 
 exports.mkdir = function(user)
 {
@@ -29,4 +30,37 @@ exports.movePDFsToUserAccountDir = function(nameDoc, pathDoc, user, callback){
             if (err) throw err;
         });
     });
+}
+
+exports.compileDocument = function(documents,user,callback){
+	var i = 0;
+	var beginDocument = '\\documentclass{article}\n' +
+						'\\usepackage{pdfpages}\n ' +
+						'\\begin{document}\n';
+	var endDocument = '\\end{document}';
+	var latexContent = '';
+
+	while(i < documents.length){
+		console.log(latexContent);
+		latexContent = latexContent + '\n\\includepdf[pages={'+documents[i][1]+'-'+documents[i][2]+'}]{app/server/accounts/'+ user +'/'+documents[i][0]+'}\n';
+		i++;
+	}
+	
+	var fileToWrite = 'app/server/accounts/'+ user +'/'+user+'.tex';
+	var content =  beginDocument + '\n' + latexContent + '\n' + endDocument;
+	console.log(fileToWrite);
+	console.log(content);
+	
+	fs.writeFile('./'+ fileToWrite,content, function (err) {
+	        if (err) throw err;
+			var command = "pdflatex -output-directory app/public/ 'app/server/accounts/"+ user +"/"+user+".tex'";
+	        console.log('Tex file generated and command executed: '+command);
+			child = exec(command, function(error, stdout, stderr) {
+				console.log('out');
+				callback();
+			});
+	    });
+		console.log('end.....');
+		
+	
 }
