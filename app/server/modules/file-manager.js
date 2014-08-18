@@ -48,19 +48,13 @@ exports.compileDocument = function(documents,user,callback){
 	
 	var fileToWrite = 'app/server/accounts/'+ user +'/'+user+'.tex';
 	var content =  beginDocument + '\n' + latexContent + '\n' + endDocument;
-	console.log(fileToWrite);
-	console.log(content);
-	
 	fs.writeFile('./'+ fileToWrite,content, function (err) {
 	        if (err) throw err;
-			var command = "pdflatex -output-directory app/public/ 'app/server/accounts/"+ user +"/"+user+".tex'";
+			var command = "pdflatex -output-directory app/public/ 'app/server/accounts/"+ user +"/"+user+".tex'"
+			 + "\n cd app/server/accounts/"+ user + "\n" + "rm *";
 	        console.log('Tex file generated and command executed: '+command);
 			child = exec(command, function(error, stdout, stderr) {
-				console.log('out');
 				callback();
 			});
 	    });
-		console.log('end.....');
-		
-	
 }
