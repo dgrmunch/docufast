@@ -17,7 +17,7 @@ sudo mongod
 ~~~~~~~~~~~~~~~~~~~~~
 * Run the app:
 ~~~~~~~~~~~~~~~~~~~~~
-sudo node app.js
+sudo node server.js
 ~~~~~~~~~~~~~~~~~~~~~
 * Run in a browser: [http://localhost:5000](http://localhost:5000)
 
