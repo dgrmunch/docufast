@@ -1,5 +1,26 @@
 #DocuFast
 
+* Install needed packages (*pdflatex* and *mongodb*):
+~~~~~~~~~~~~~~~~~~~~~
+sudo apt-get install pdflatex
+sudo apt-get install mongodb
+~~~~~~~~~~~~~~~~~~~~~
+* Clone repo:  `git clone https://github.com/dgrmunch/docufast.git` 
+* Install dependencies in cloned repo:
+~~~~~~~~~~~~~~~~~~~~~
+cd docufast
+npm install
+~~~~~~~~~~~~~~~~~~~~~
+* Run mongodb:
+~~~~~~~~~~~~~~~~~~~~~
+sudo mongod
+~~~~~~~~~~~~~~~~~~~~~
+* Run the app:
+~~~~~~~~~~~~~~~~~~~~~
+sudo node app.js
+~~~~~~~~~~~~~~~~~~~~~
+* Run in a browser: [http://localhost:5000](http://localhost:5000)
+
 ####DocuFast is built on:
 
 * [Node-Login](http:////github.com/braitsch/node-login) - Node.js Login Framework
@@ -10,7 +31,5 @@
 * [EmailJS](http://github.com/eleith/emailjs) - Node.js > SMTP Server Middleware
 * [Moment.js](http://momentjs.com/) - Lightweight Date Library
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/) - UI Component & Layout Library
-* [Formidable](https://www.npmjs.org/package/formidable) - A node.js module for parsing form data, especially file uploads.
-
 
 By Diego Gonzalez | [xmunch.net](http://www.xmunch.net)
