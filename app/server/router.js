@@ -183,14 +183,9 @@ module.exports = function(app) {
 		console.log('Compile router');
 		var documents = req.param('documents');
 		var user = req.session.user.user;
-		console.log(documents);
-		FM.compileDocument(documents, user, function(data){
-			console.log('coco '+res);
-			res.render('upload', {empty : true});
+		FM.compileDocument(documents, user, function(){   
+			res.redirect('/'+user+'.pdf');
 		});
-		console.log('ok2');
-		res.redirect('/home?upload=true&user='+req.session.user.user);     
-		res.redirect('/'+user+'.pdf');
 	});  
 
 	app.post("/upload", function (req, res) {
@@ -201,7 +196,7 @@ module.exports = function(app) {
 			
 		while(i < req.files.file.length){
 			nameDoc = req.files.file[i].name;
-		    pathDoc = req.files.file[i].path;
+		    pathDoc = req.files.file[i].path.replace(" ","");
 			nameArray = nameDoc.split('.');
 			if(nameArray[nameArray.length - 1] === 'pdf' || nameArray[nameArray.length - 1] === 'PDF' )
 				FM.movePDFsToUserAccountDir(nameDoc, pathDoc, req.session.user.user); 

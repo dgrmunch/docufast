@@ -81,10 +81,10 @@ function HomeController()
 			type: 'POST',
 			data: {documents: documents},
 			success: function(data){
-	 			console.log(data+"enddd");
+	 			that.showLockedAlert('You can download your file <a href="/'+$('#userName').val()+'.pdf">here.<a>');
 			},
 			error: function(jqXHR){
-				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+				that.showLockedAlert('There was an error. Check your filenames.');
 			}
 		});
 	}

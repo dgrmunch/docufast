@@ -8,6 +8,7 @@ block content
 	p Once you finish, click the 'Compile' button in the top bar. 
 	p Check your email after a couple of minutes, you will receive the document in your inbox.
 		ul#sortable
+			input(type="hidden", value=user.user, name="userName")#userName 
 			- for (var i = 0; i < files.length; i++)
 				li
 					h4(style='margin:10px')= files[i]
