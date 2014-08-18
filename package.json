@@ -19,8 +19,8 @@
 		"jade": "0.27.7",
 		"mongodb": "1.2.7",
 		"moment" : "1.7.2",
-		"emailjs": "0.3.3"
-		"formidable": "1.0.15"
+		"emailjs": "0.3.3",
+		"exec": "0.1.2"
 	},
 	"engines": {
 		"node": "0.8.14",
