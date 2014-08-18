@@ -5,8 +5,8 @@ var Server 		= require('mongodb').Server;
 var moment 		= require('moment');
 var FM			= require('./file-manager');
 
-var dbPort 		= $OPENSHIFT_MONGODB_DB_PORT;//27017;
-var dbHost 		= $OPENSHIFT_MONGODB_DB_HOST; //'localhost';
+var dbPort 		= 27017;
+var dbHost 		= 'localhost';
 var dbName 		= 'node-login';
 
 var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}), {w: 1});
