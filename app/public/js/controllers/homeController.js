@@ -28,8 +28,6 @@ function HomeController()
 			success: function(data){
 	 			$('#document-form').text('').append(data);
 				$('#sortable').sortable();
-				$('#document-form-container').addClass('totalSize');
-				$('#document-form').addClass('totalSize');
 				$('#btn-compile').show();
 			}
 		});
@@ -67,14 +65,11 @@ function HomeController()
 		});
 	}
 	
-
 	this.compileDocument = function()
 	{
+		var that = this;
 		var documents = {}
 	    $('#sortable li').each(function(document_index, document_value) {
-			console.log(document_index);
-			console.log(document_value);
-			console.log('---');
 			var element = {}
 			$(this).find('input').each(function(element_index, element_value){
 				element[element_index] = $(this).val();
@@ -86,7 +81,7 @@ function HomeController()
 			type: 'POST',
 			data: {documents: documents},
 			success: function(data){
-	 			$('.modal-confirm').modal('hide');
+	 			console.log(data+"enddd");
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
