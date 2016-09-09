@@ -32,4 +32,4 @@ sudo node server.js
 * [Moment.js](http://momentjs.com/) - Lightweight Date Library
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/) - UI Component & Layout Library
 
-By Diego Gonzalez | [xmunch.net](http://www.xmunch.net)
+By Diego Gonzalez | [xmunch.net](http://www.xmunch.com)
